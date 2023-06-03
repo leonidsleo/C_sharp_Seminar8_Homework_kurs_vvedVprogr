@@ -39,15 +39,15 @@ void OrderElementsRowsArray(int[,] array) // метод упорядочиван
 {
     int i2 = 0;
     int j2 = 0;
-    // int max = array[i, a];
+    int size = array.GetLength(1) - 1;
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int a = 0; a < array.GetLength(1); a++)
+        for (int a = 0; a < size; a++)
         {
             int max = array[i, a];
             for (int j = a; j < array.GetLength(1); j++)
             {
-                if (max < array[i, j])
+                if (max <= array[i, j])
                 {
                     max = array[i, j];
                     i2 = i;
