@@ -14,7 +14,7 @@ int EnterNumber() // метод для ввода числа, значения
     return num;
 }
 
-void NewArray(int[,,] array) //Метод создания массива, значение рандома задает клиент. 
+void NewArray3D(int[,,] array) //Метод создания трехмерного массива, значение рандома задает клиент. 
 {
     Console.Write("Введите минимальное значение Random = ");
     int min = EnterNumber();
@@ -62,7 +62,7 @@ void NewArray(int[,,] array) //Метод создания массива, зн�
     
 }
 
-void PrintArray(int[,,] array)
+void PrintArray3D(int[,,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -89,6 +89,6 @@ int columns = EnterNumber();
 Console.Write("Введите Z массива =  ");
 int three = EnterNumber();
 int[,,] array = new int[rows, columns, three];
-NewArray(array);
+NewArray3D(array);
 Console.WriteLine();
-PrintArray(array);
+PrintArray3D(array);
