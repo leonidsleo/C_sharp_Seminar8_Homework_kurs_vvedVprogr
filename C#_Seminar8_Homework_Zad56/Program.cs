@@ -11,13 +11,10 @@ void NewArray(int[,] array) //Метод создания массива, зна
 {
     Console.Write("Создать массив из случайных чисел [мин, макс]. Введите минимальное значение = ");
     int min = Convert.ToInt32(Console.ReadLine());
-    //int min = EnterNumber();
     Console.Write("Создать массив из случайных чисел [мин, макс]. Введите масимальное значение = ");
     int max = Convert.ToInt32(Console.ReadLine());
-    //int max = EnterNumber();
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        // array[i] = new Random().Next(min, max);
         for (int j = 0; j < array.GetLength(1); j++)
         {
             array[i, j] = new Random().Next(min, max);
@@ -53,7 +50,7 @@ void SearchStringSmallestSumOfNumbersTwoArray (int[,] array) // метод по�
         numbers.Add($"{summ}");
         summ = 0;
     }
-     Console.WriteLine("Суммы строк:");
+    Console.WriteLine("Суммы строк:");
     Console.WriteLine(String.Join<string>(" ", numbers));
     int min = Convert.ToInt32(numbers[0]);
     int ind = 0;

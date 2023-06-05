@@ -11,13 +11,10 @@ void NewArray(int[,] array) //Метод создания массива, зна
 {
     Console.Write("Создать массив из случайных чисел [мин, макс]. Введите минимальное значение = ");
     int min = Convert.ToInt32(Console.ReadLine());
-    //int min = EnterNumber();
     Console.Write("Создать массив из случайных чисел [мин, макс]. Введите масимальное значение = ");
     int max = Convert.ToInt32(Console.ReadLine());
-    //int max = EnterNumber();
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        // array[i] = new Random().Next(min, max);
         for (int j = 0; j < array.GetLength(1); j++)
         {
             array[i, j] = new Random().Next(min, max);
@@ -33,6 +30,29 @@ void PrintArray(int[,] array)
             Console.Write($"{array[i, j]} ");
         }
         Console.WriteLine();
+    }
+}
+
+void NewArray2(int[,] array3, int[,] array, int[,] array2, int columns, int rows2)
+{
+    if (columns != rows2)
+    {
+        Console.WriteLine("Найти произведение не возможно. Кол-во столбцов М1 должно быть равно кол-ву строк М2.");
+    }
+    else
+    {
+        for (int i = 0; i < array3.GetLength(0); i++)
+        {
+            for (int j = 0; j < array3.GetLength(1); j++)
+            {
+                for (int k = 0; k < array2.GetLength(0); k++)
+                {
+                    array3[i, j] += array[i, k] * array2[k, j];
+                }
+            }
+        }
+        Console.WriteLine("Матрица 3. Произведение М1 * М2:");
+        
     }
 }
 
@@ -56,31 +76,6 @@ Console.WriteLine();
 Console.WriteLine("Матрица 2:");
 PrintArray(array2);
 Console.WriteLine();
-
-if (columns != rows2)
-{
-    Console.WriteLine("Найти произведение не возможно.");
-}
-else
-{
-    //int summ = 0;
-    int[,] array3 = new int[array.GetLength(0), array2.GetLength(1)];
-    for (int i = 0; i < array3.GetLength(0); i++)
-    {
-        for (int j = 0; j < array3.GetLength(1); j++)
-        {
-            for (int k = 0; k < array2.GetLength(0); k++)
-            {
-                array3[i, j] += array[i, k] * array2 [k, j];
-                //summ = summ + pro;
-                
-            }
-            //array3[i, j] = summ;
-            //Console.WriteLine(summ);
-            //summ = 0;
-        }
-        
-    }
-    Console.WriteLine("Матрица 3. Произведение М1 * М2:");
-    PrintArray(array3);
-}
+int[,] array3 = new int[array.GetLength(0), array2.GetLength(1)];
+NewArray2(array3, array, array2, columns, rows2);
+PrintArray(array3);
